@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İş Başvuru Formu</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #faf7f7;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            position: relative; 
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #ccc;
+        }
+
+        input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #333;
+            border: 1px solid #555;
+            border-radius: 5px;
+            color: white;
+            font-size: 14px;
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+        input[list="cities"] {
+        width: 98%; /* Genişlik ayarı */
+        background-color: #333; /* Siyah arka plan */
+        color: white; /* Beyaz yazı rengi */
+        border: 1px solid #555; /* Kenarlık rengi */
+        border-radius: 5px; /* Kenar yuvarlama */
+        padding: 10px; /* İç boşluk */
+            }   
+        .btn-submit, .btn-reset {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-submit {
+            background-color: #007BFF;
+        }
+
+        .btn-reset {
+            background-color: #f44336;
+            margin-left: 10px;
+        }
+
+        .file-upload {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #aaa;
+        }
+
+        .image-upload {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #444;
+            padding: 5px;
+            border-radius: 5px;
+            color: white;
+            text-align: center;
+        }
+
+        .image-upload input[type="file"] {
+            color: white; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>İş Başvuru Formu</h1>
+
+      
+        <div class="image-upload">
+            <label for="image">Görsel Yükle:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+        </div>
+
+        <form>
+
+            <!-- Ad Soyad -->
+            <div class="form-group">
+                <label for="name">Ad Soyad:</label>
+                <input type="text" id="name" name="name" placeholder="Adınızı ve Soyadınızı Giriniz" required>
+            </div>
+
+            <!-- Telefon Numarası -->
+            <div class="form-group">
+                <label for="phone">Telefon Numarası:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Telefon numaranızı giriniz"
+                required pattern="^\d{10}$" maxlength="10" title="Telefon numarası 10 haneli ve sadece rakamlardan oluşmalıdır">
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">E-Posta:</label>
+                <input type="email" id="email" name="email" placeholder="Email adresinizi giriniz" required>
+            </div>
+
+            <!-- Doğum Tarihi -->
+            <div class="form-group">
+                <label for="birthdate">Doğum Tarihi:</label>
+                <input type="date" id="birthdate" name="birthdate" required>
+            </div>
+
+            <!-- Cinsiyet -->
+            <div class="form-group">
+                <label>Cinsiyet:</label>
+                <label><input type="radio" name="gender" value="Erkek" required> Erkek</label>
+                <label><input type="radio" name="gender" value="Kadın"> Kadın</label>
+            </div>
+
+            <!-- T.C -->
+            <div class="form-group">
+                <label for="tc">T.C. Kimlik No:</label>
+                <input type="tel" id="tc" name="tc" placeholder="T.C kimlik numaranızı giriniz" 
+                required pattern="^\d{11}$" maxlength="11" title="T.C. kimlik numarası 11 haneli ve sadece rakamlardan oluşmalıdır">
+            </div>
+
+            <!-- Medeni Durum -->
+            <div class="form-group">
+                <label>Medeni Durum:</label>
+                <label><input type="radio" name="marital_status" value="Evli" required> Evli</label>
+                <label><input type="radio" name="marital_status" value="Bekar"> Bekar</label>
+            </div>
+
+            <!-- Üniversite -->
+            <div class="form-group">
+                <label for="university">Üniversite:</label>
+                <select id="university" name="university" required>
+                    <option value="" disabled selected>Üniversite Seçiniz</option>
+                    <option value="bogazici">Boğaziçi Üniversitesi</option>
+                    <option value="itu">İstanbul Teknik Üniversitesi</option>
+                    <option value="atatürk">Atatürk Üniversitesi</option>
+                    <option value="etü">Erzurum Teknik Üniversitesi</option>
+                    <option value="odtu">Orta Doğu Teknik Üniversitesi</option>
+                    <option value="hacettepe">Hacettepe Üniversitesi</option>
+                    <option value="ankara">Ankara Üniversitesi</option>
+                    <option value="istanbul">İstanbul Üniversitesi</option>
+                    <option value="koc">Koç Üniversitesi</option>
+                    <option value="sabanci">Sabancı Üniversitesi</option>
+                    <option value="bilkent">Bilkent Üniversitesi</option>
+                    <option value="ege">Ege Üniversitesi</option>
+                    <option value="uludag">Uludağ Üniversitesi</option>
+                    <option value="yildiz">Yıldız Teknik Üniversitesi</option>
+                    <option value="marmara">Marmara Üniversitesi</option>
+                </select>
+            </div>
+             <!-- Şehir Datalist -->
+<div class="form-group">
+    <label for="city">Hangi şehirde çalışmak istersiniz?</label>
+    <input list="cities" id="city" name="city" placeholder="Şehir Seçiniz" required>
+    <datalist id="cities">
+        <option value="İstanbul"></option>
+        <option value="Ankara"></option>
+        <option value="İzmir"></option>
+        <option value="Bursa"></option>
+        <option value="Antalya"></option>
+        <option value="Adana"></option>
+        <option value="Konya"></option>
+        <option value="Gaziantep"></option>
+        <option value="Kayseri"></option>
+        <option value="Samsun"></option>
+        <option value="Trabzon"></option>
+    </datalist>
+</div>
+
+            <!-- Programlama Bilgisi -->
+            <div class="form-group">
+                <label>Programlama Bilgisi:</label>
+                <label><input type="checkbox" name="languages" value="C#"> C#</label>
+                <label><input type="checkbox" name="languages" value="Python"> Python</label>
+                <label><input type="checkbox" name="languages" value="Node.js"> Node.js</label>
+                <label><input type="checkbox" name="languages" value="Golang"> Golang</label>
+                <label><input type="checkbox" name="languages" value="React Native"> React Native</label>
+                <label><input type="checkbox" name="languages" value="Php"> Php</label>
+            </div>
+
+            <div class="form-group">
+                <label for="cover_letter">Ön Yazı:</label>
+                <textarea id="cover_letter" name="cover_letter" rows="5" placeholder="Ön yazınızı buraya giriniz" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="languages">Yabancı Dil Bilgisi:</label>
+                <p style="font-size: 15px;">1: Zayıf, 5: Ana Dil</p>
+                <label for="english_level">İngilizce:</label>
+                <input type="range" id="english_level" name="english_level" min="1" max="5" step="1" value="3">
+                <label for="german_level">Almanca:</label>
+                <input type="range" id="german_level" name="german_level" min="1" max="5" step="1" value="3">
+       
+            </div>
+
+            <!-- Bize Nereden Ulaştınız -->
+            <div class="form-group">
+                <label>Bize Nereden Ulaştınız?</label>
+                <label><input type="radio" name="contact_source" value="LinkedIn" required> LinkedIn</label>
+                <label><input type="radio" name="contact_source" value="Instagram"> Instagram</label>
+                <label><input type="radio" name="contact_source" value="Facebook"> Facebook</label>
+                <label><input type="radio" name="contact_source" value="Twitter"> Twitter</label>
+                <label><input type="radio" name="contact_source" value="Diğer"> Diğer</label>
+            </div>
+
+            <!-- CV Yükle -->
+            <div class="form-group file-upload">
+                <label>CV Yükle:</label>
+                <input type="file" id="cv" name="cv" required>
+            </div>
+
+            <!-- Buttons -->
+            <input type="submit" class="btn-submit" value="Gönder">
+            <input type="reset" class="btn-reset" value="Temizle">
+
+        </form>
+    </div>
+
+</body>
+</html>
